@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import { useSelector } from "react-redux";
 import BookList from "./BookList";
 
 const BookListIcon = () => {
   const booksSelected = useSelector((state) => state.app.booksSelected);
+  const [showList, setShowList] = useState(false);
 
   return (
     <div>
@@ -14,10 +15,15 @@ const BookListIcon = () => {
             {booksSelected.length}
           </span>
         )}
-        <LibraryBooksIcon style={{ fontSize: 35, color: "white" }} />
-        <div className="absolute top-14">
-          <BookList />
-        </div>
+        <LibraryBooksIcon
+          onClick={() => setShowList(!showList)}
+          style={{ fontSize: 35, color: "white" }}
+        />
+        {showList ? (
+          <div className="absolute top-14">
+            <BookList />
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   setBookSelected,
   updtaeBookSelected,
   addBookToLibrary,
+  updateBooksFiltred,
 } from "../redux/slices";
 
 function BookList() {
@@ -12,19 +13,20 @@ function BookList() {
 
   const booksSelected = useSelector((state) => state.app.booksSelected);
   const bookDeleting = useSelector((state) => state.app.booksOnListDelleted);
+  const filtredByGenre = useSelector((state) => state.app.bookFiltred);
 
   const delletBookInlist = (bookSelecToDellet) => {
     dispatch(setBooksLisDelleted(bookSelecToDellet)); //libros borrados
-
     const bookSelectedFilter = booksSelected.filter(
       (bookData) => bookData.book.ISBN !== bookSelecToDellet.book.ISBN
     );
 
     dispatch(updtaeBookSelected(bookSelectedFilter));
-
     dispatch(addBookToLibrary(bookSelecToDellet));
+    if (filtredByGenre[0].book.genre == bookSelecToDellet.book.genre) {
+      dispatch(updateBooksFiltred(bookSelecToDellet));
+    }
   };
-  console.log("book Selected", booksSelected);
 
   return (
     <div className="w-[450px] h-[500px] overflow-scroll  flex flex-col bg-[#8031f8] rounded-b-lg">

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const BooksAvaibles = () => {
   const library = useSelector((state) => state.app.library);
 
-  console.log(library);
+
 
   return (
     <div className="flex gap-3">
