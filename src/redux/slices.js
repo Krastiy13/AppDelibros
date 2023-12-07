@@ -55,7 +55,7 @@ const counterSlice = createSlice({
                 const libraryFiltered = action.payload.filter(book => !booksSelectedISBN.includes(book.book.ISBN));
 
 
-                console.log(libraryFiltered)
+         
 
                 state.library = libraryFiltered; // Actualiza la biblioteca con los datos recibidos
 

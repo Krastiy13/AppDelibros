@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setBooksFiltred, updateLibrary } from "../redux/slices";
+import { setBooksFiltred, updateLibrary } from "../../redux/slices";
 const FilterByGenre = () => {
   const library = useSelector((state) => state.app.library);
   const [genresSelected, setGenresSelected] = useState("");

@@ -6,7 +6,7 @@ import {
   updtaeBookSelected,
   addBookToLibrary,
   updateBooksFiltred,
-} from "../redux/slices";
+} from "../../redux/slices";
 
 function BookList() {
   const dispatch = useDispatch();
